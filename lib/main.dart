@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/businessClass.dart';
+import 'package:helloworld/homeClass.dart';
+import 'package:helloworld/schoolClass.dart';
 
 void main() {
   runApp(const Root());
@@ -30,16 +33,16 @@ class OneClass extends StatefulWidget {
 }
 
 class _OneClassState extends State<OneClass> {
-  var counterValue = 0;
-  var counterValue2 = 0;
-  var counterValue3 = 0;
+  var _counterValue = 0;
+  var _counterValue2 = 0;
+  var _counterValue3 = 0;
 
   //defining a funtion for increment state of initial value
   void increment() {
     setState(() {
-      counterValue = counterValue + 5;
-      counterValue2 = counterValue - 10;
-      counterValue3 = counterValue * 2;
+      _counterValue = _counterValue + 5;
+      _counterValue2 = _counterValue - 10;
+      _counterValue3 = _counterValue * 2;
     });
   }
 
@@ -49,20 +52,63 @@ class _OneClassState extends State<OneClass> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        //how to page navigation
+        onTap: (index) {
+          if (index == 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const HomeClass()),
+            );
+          } else if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const BusinessClass()),
+            );
+          } else if (index == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const SchoolClass()),
+            );
+          }
+        },
+
+        currentIndex: 0,
+        selectedItemColor: Colors.amber[800],
+
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+            tooltip: "This is Home Navigation Item",
+            backgroundColor: Colors.redAccent,
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.business),
+              label: 'Business',
+              tooltip: "This is Business Navigation Item"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            label: 'School',
+            tooltip: "This is School Navigation Item",
+            backgroundColor: Colors.redAccent,
+          ),
+        ],
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              "$counterValue",
+              "$_counterValue",
               style: const TextStyle(fontSize: 100),
             ),
             Text(
-              "$counterValue2",
+              "$_counterValue2",
               style: const TextStyle(fontSize: 100),
             ),
             Text(
-              "$counterValue3",
+              "$_counterValue3",
               style: const TextStyle(fontSize: 100),
             ),
           ],
