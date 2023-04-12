@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:helloworld/businessClass.dart';
 import 'package:helloworld/homeClass.dart';
 import 'package:helloworld/schoolClass.dart';
+import 'global_variable.dart';
 
 void main() {
   runApp(const Root());
@@ -36,8 +37,6 @@ class _OneClassState extends State<OneClass> {
   var _counterValue = 0;
   var _counterValue2 = 0;
   var _counterValue3 = 0;
-
-  //defining a funtion for increment state of initial value
   void increment() {
     setState(() {
       _counterValue = _counterValue + 5;
@@ -110,6 +109,9 @@ class _OneClassState extends State<OneClass> {
             Text(
               "$_counterValue3",
               style: const TextStyle(fontSize: 100),
+            ),
+            const Image(
+              image: NetworkImage("https://picsum.photos/250?image=9"),
             ),
           ],
         ),
