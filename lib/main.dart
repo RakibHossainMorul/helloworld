@@ -94,27 +94,75 @@ class _OneClassState extends State<OneClass> {
           ),
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              "$_counterValue",
-              style: const TextStyle(fontSize: 100),
-            ),
-            Text(
-              "$_counterValue2",
-              style: const TextStyle(fontSize: 100),
-            ),
-            Text(
-              "$_counterValue3",
-              style: const TextStyle(fontSize: 100),
-            ),
-            const Image(
-              image: NetworkImage("https://picsum.photos/250?image=9"),
-            ),
-          ],
-        ),
+      body: Column(
+        children: [
+          Expanded(
+              child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text("Hellowrold"),
+              Text("Hellowrold"),
+              Text("Hellowrold"),
+              Text("Hellowrold"),
+              Text("Hellowrold"),
+              Text("Hellowrold"),
+              Container(
+                color: Colors.amber,
+                height: 100,
+                width: 250,
+                child: ListView(children: [
+                  Text("Hellowrold"),
+                  Text("Hellowrold"),
+                  Text("Hellowrold"),
+                  Text("kjfgh"),
+                  Text("Hellowrold"),
+                  Text("Hellowrold"),
+                  Text("dfgf"),
+                  Text("Hellowrold"),
+                  Text("Helldfgdfowrold"),
+                  Text("Hellowrold"),
+                  Text("Hexgxfgfllowrold"),
+                  Text("Hellxfgxfgowrold"),
+                  Text("rtgrstgs"),
+                  Text("Hellowrold"),
+                  Text("xgsdfgsdfg"),
+                  Text("Hesdfsdllowrold"),
+                ]),
+              ),
+            ],
+          )),
+          Expanded(
+            child: ListView(children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    "$_counterValue",
+                    style: const TextStyle(fontSize: 100),
+                  ),
+                  Text(
+                    "$_counterValue2",
+                    style: const TextStyle(fontSize: 100),
+                  ),
+                  Text(
+                    "$_counterValue3",
+                    style: const TextStyle(fontSize: 100),
+                  ),
+                  const Image(
+                    image: NetworkImage("https://picsum.photos/250?image=9"),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Image(
+                    image: NetworkImage("https://picsum.photos/250?image=9"),
+                  ),
+                ],
+              ),
+            ]),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: increment,
