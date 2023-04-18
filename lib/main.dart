@@ -3,9 +3,11 @@ import 'package:helloworld/class/businessClass.dart';
 import 'package:helloworld/class/homeClass.dart';
 import 'package:helloworld/logic_based_widget/logic_text_widget.dart';
 import 'package:helloworld/schoolClass.dart';
+import 'package:helloworld/widget_with_multiple_instance/test.dart';
 import 'package:helloworld/widgets/container.dart';
 import 'package:helloworld/widgets/widget_list.dart';
 import 'class/one_class.dart';
+import 'logic_based_widget/widget_for_loop.dart';
 
 void main() {
   runApp(const Root());
@@ -23,7 +25,7 @@ class Root extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LogicalTextWidget(),
+      home: const MyStatefulWidget(),
     );
   }
 }
