@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:helloworld/class/businessClass.dart';
 import 'package:helloworld/class/homeClass.dart';
 import 'package:helloworld/logic_based_widget/logic_text_widget.dart';
+import 'package:helloworld/same_widget_form_different_file/test.dart';
 import 'package:helloworld/schoolClass.dart';
 import 'package:helloworld/widget_with_multiple_instance/test.dart';
 import 'package:helloworld/widgets/container.dart';
@@ -25,7 +26,7 @@ class Root extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyStatefulWidget(),
+      home: const SameWidget(),
     );
   }
 }
