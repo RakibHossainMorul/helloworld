@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'businessClass.dart';
 import 'homeClass.dart';
-import '../schoolClass.dart';
+import '../state_management_provider/schoolClass.dart';
 
 //Class No : 1
 class OneClass extends StatefulWidget {

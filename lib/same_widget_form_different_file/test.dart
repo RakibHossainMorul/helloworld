@@ -12,9 +12,17 @@ class SameWidget extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Column(
-          children: const [
-            widget1.Same(),
-            widget2.Same(),
+          children: [
+            const widget1.Same(),
+            const widget2.Same(),
+            const Divider(
+              height: 55,
+              color: Colors.amber,
+              thickness: 10,
+            ),
+            const Text("This is form same widget from different classes "),
+            const Text("Hello World"),
+            ElevatedButton(onPressed: () {}, child: const Text("Click Me")),
           ],
         ),
       ),

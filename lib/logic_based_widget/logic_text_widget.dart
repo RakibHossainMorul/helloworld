@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helloworld/schoolClass.dart';
+import 'package:helloworld/state_management_provider/schoolClass.dart';
 
 class LogicalTextWidget extends StatefulWidget {
   const LogicalTextWidget({super.key});
