@@ -25,20 +25,4 @@ class NamesModel extends ChangeNotifier {
     _names.add(name);
     notifyListeners();
   }
-
-//Adding list data to local storage by shared preference
-  addDataToLocalStorage() async {
-    SharedPreferences prefs1 = await SharedPreferences.getInstance();
-    prefs1.setStringList("items", _names);
-  }
-
-  //Retrive data from local storage by shared preference
-  loadData() async {
-    SharedPreferences prefs2 = await SharedPreferences.getInstance();
-    List<String>? items = prefs2.getStringList("items");
-    if (items != null) {
-      _names = items;
-      notifyListeners();
-    }
-  }
 }

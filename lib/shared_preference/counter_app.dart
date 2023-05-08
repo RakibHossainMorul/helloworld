@@ -14,7 +14,7 @@ class _MyWidgetState extends State<MyWidget> {
   final TextEditingController _controller = TextEditingController();
   /////////////
   int counter = 0;
-  final List<String> _names = [];
+  List<String> _names = [];
   List<String> get names => _names;
 ////////////////////////
 
@@ -49,9 +49,34 @@ class _MyWidgetState extends State<MyWidget> {
     });
   }
 
+  //Adding list data to local storage by shared preference
+  addListData() async {
+    SharedPreferences prefs1 = await SharedPreferences.getInstance();
+    prefs1.setStringList("items", _names);
+  }
+
+  //Retrive data from local storage by shared preference
+  loadListData() async {
+    SharedPreferences prefs2 = await SharedPreferences.getInstance();
+    List<String>? items = prefs2.getStringList("items");
+    if (items != null) {
+      _names = items;
+    }
+  }
+
+//remove List value data from shared prefercence
+  removeListValue() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      prefs.remove('items');
+      _names = (prefs.getStringList('items') ?? []);
+    });
+  }
+
   @override
   void initState() {
     loadCounter();
+    loadListData();
     super.initState();
   }
 
@@ -103,11 +128,19 @@ class _MyWidgetState extends State<MyWidget> {
                                       Text('Please enter a Correct User Name')),
                             );
                           } else {
-                            addName(_controller.text);
-                            _controller.clear();
+                            setState(() {
+                              addName(_controller.text);
+                              _controller.clear();
+                              addListData();
+                            });
                           }
                         },
                         child: const Text("Submit")),
+                    TextButton(
+                        onPressed: () {
+                          removeListValue();
+                        },
+                        child: const Text("Clear List")),
                   ],
                 ),
               )),
@@ -117,7 +150,7 @@ class _MyWidgetState extends State<MyWidget> {
                 width: double.infinity,
                 child: ListView.builder(
                   itemCount: names.length,
-                  itemBuilder: (context, index) {
+                  itemBuilder: (BuildContext context, index) {
                     return ListTile(
                       title: Text(
                         names[index].toString(),
